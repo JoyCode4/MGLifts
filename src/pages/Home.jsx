@@ -48,21 +48,21 @@ const Home = () => {
       company: "CEO of Innovate Corp.",
       feedback:
         "From consultation to installation, the process was smooth and transparent. Great experience overall.",
-      avatar: "/assets/client3.png",
+      avatar: "public/assets/client3.png",
     },
     {
       name: "Dr. Anya Sharma",
       company: "Chief Engineer, Global Dynamics",
       feedback:
         "The lifts provided by MG Lifts are reliable, efficient, and maintainable. I highly recommend them!",
-      avatar: "/assets/Client1.png",
+      avatar: "public/assets/Client1.png",
     },
     {
       name: "Dr. Sofia Morales",
       company: "Chief Engineer, Urban Towers",
       feedback:
         "Their maintenance team is always prompt and professional. We feel safe knowing MG Lifts is with us.",
-      avatar: "/assets/client2.png",
+      avatar: "public/assets/client2.png",
     },
   ];
 
@@ -71,17 +71,17 @@ const Home = () => {
     {
       name: "Vikram Patel",
       role: "Project Manager",
-      photo: "/assets/member1.png",
+      photo: "public/assets/member1.png",
     },
     {
       name: "Marcus Williams",
       role: "Senior Engineer",
-      photo: "/assets/member2.png",
+      photo: "public/assets/member2.png",
     },
     {
       name: "Naomi Tanaka",
       role: "Marketing Specialist",
-      photo: "/assets/member3.png",
+      photo: "public/assets/member3.png",
     },
   ];
 
@@ -92,7 +92,7 @@ const Home = () => {
         <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center">
           <div className="relative w-full h-full">
             <img
-              src="/assets/bg_home.png"
+              src="public/assets/bg_home.png"
               alt="logo"
               className="w-full h-full xl:object-fill object-cover"
             />
