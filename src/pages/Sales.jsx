@@ -5,37 +5,37 @@ const Sales = () => {
   const products = [
     {
       title: "Articulated Double Lift 4B45J",
-      image: "public/assets/Articulated Double Lift Thumbnail.png",
+      image: "/assets/Articulated Double Lift Thumbnail.png",
       specs: "Max Platform Height: 45ft | Capacity: 500lbs",
       price: "$215/day",
     },
     {
       title: "Scissor Lift Platform",
-      image: "public/assets/Compact Scissor Lift.png",
+      image: "/assets/Compact Scissor Lift.png",
       specs: "Max Platform Height: 32ft | Capacity: 700lbs",
       price: "$185/day",
     },
     {
       title: "Straight Boom Lift",
-      image: "public/assets/Homepage Illustration.png",
+      image: "/assets/Homepage Illustration.png",
       specs: "Max Platform Height: 60ft | Capacity: 600lbs",
       price: "$250/day",
     },
     {
       title: "Straight Boom Lift",
-      image: "public/assets/Saure Lift.png",
+      image: "/assets/Saure Lift.png",
       specs: "Max Platform Height: 60ft | Capacity: 600lbs",
       price: "$250/day",
     },
     {
       title: "Straight Boom Lift",
-      image: "public/assets/Articulated Double Lift Variation.png",
+      image: "/assets/Articulated Double Lift Variation.png",
       specs: "Max Platform Height: 60ft | Capacity: 600lbs",
       price: "$250/day",
     },
     {
       title: "Straight Boom Lift",
-      image: "public/assets/Large Telehandler.png",
+      image: "/assets/Large Telehandler.png",
       specs: "Max Platform Height: 60ft | Capacity: 600lbs",
       price: "$250/day",
     },
