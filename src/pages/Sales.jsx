@@ -1,52 +1,10 @@
 import React, { useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { FaArrowRight } from "react-icons/fa";
-const Sales = () => {
-  const products = [
-    {
-      id: 1,
-      title: "Articulated Double Lift 4B45J",
-      image: "/assets/Articulated Double Lift Thumbnail.png",
-      specs: "Max Platform Height: 45ft | Capacity: 500lbs",
-      price: "$215/day",
-    },
-    {
-      id: 2,
-      title: "Scissor Lift Platform",
-      image: "/assets/Compact Scissor Lift.png",
-      specs: "Max Platform Height: 32ft | Capacity: 700lbs",
-      price: "$185/day",
-    },
-    {
-      id: 3,
-      title: "Straight Boom Lift",
-      image: "/assets/Homepage Illustration.png",
-      specs: "Max Platform Height: 60ft | Capacity: 600lbs",
-      price: "$250/day",
-    },
-    {
-      id: 4,
-      title: "Straight Boom Lift",
-      image: "/assets/Saure Lift.png",
-      specs: "Max Platform Height: 60ft | Capacity: 600lbs",
-      price: "$250/day",
-    },
-    {
-      id: 5,
-      title: "Straight Boom Lift",
-      image: "/assets/Articulated Double Lift Variation.png",
-      specs: "Max Platform Height: 60ft | Capacity: 600lbs",
-      price: "$250/day",
-    },
-    {
-      id: 6,
-      title: "Straight Boom Lift",
-      image: "/assets/Large Telehandler.png",
-      specs: "Max Platform Height: 60ft | Capacity: 600lbs",
-      price: "$250/day",
-    },
-  ];
+import data from "../../data.json";
 
+const Sales = () => {
+  const products = data.salesProducts;
   const [viewAll, setViewAll] = useState(false);
 
   return (

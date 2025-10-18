@@ -1,8 +1,23 @@
 import { Link, useNavigate } from "react-router-dom";
 import { CiMail, CiMapPin, CiPhone } from "react-icons/ci";
+import data from "../../data.json";
 
 const Footer = () => {
   const navigate = useNavigate();
+
+  // Map icon types to actual React icon components
+  const iconMap = {
+    phone: <CiPhone className="text-primary text-3xl font-bold" />,
+    email: <CiMail className="text-primary text-3xl font-bold" />,
+    mapPin: <CiMapPin className="text-primary text-3xl font-bold" />,
+  };
+
+  // Get contact info from data.json and map icons
+  const contactInfo = data.contactInfo.map((info) => ({
+    ...info,
+    icon: iconMap[info.iconType],
+  }));
+
   return (
     <footer className="px-10 md:px-0 bg-[#262626] border-t border-gray-600">
       <div className="container mx-auto px-4 py-12">
@@ -80,25 +95,24 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-3">
-              <li className="flex items-center space-x-2 text-muted-foreground text-sm">
-                <CiPhone className="text-primary text-3xl font-bold" />
-                <a href="tel:+919960731781" className="hover:text-primary">
-                  9960731781
-                </a>
-              </li>
-              <li className="flex items-center space-x-2 text-muted-foreground text-sm">
-                <CiMail className="text-primary text-3xl font-bold" />
-                <a
-                  href="mailto:mgengineeringsolutions123@gmail.com"
-                  className="hover:text-primary break-all"
+              {contactInfo.map((info, index) => (
+                <li
+                  key={index}
+                  className="flex items-center space-x-2 text-muted-foreground text-sm"
                 >
-                  mgengineeringsolutions123@gmail.com
-                </a>
-              </li>
-              <li className="flex items-center space-x-2 text-muted-foreground text-sm">
-                <CiMapPin className="text-primary text-3xl font-bold" />
-                <span>Wasuli Phata, Chakan MIDC, Pune-410501</span>
-              </li>
+                  {info.icon}
+                  {info.iconType === "mapPin" ? (
+                    <span>{info.detail}</span>
+                  ) : (
+                    <a
+                      href={info.link}
+                      className="hover:text-primary break-all"
+                    >
+                      {info.detail}
+                    </a>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

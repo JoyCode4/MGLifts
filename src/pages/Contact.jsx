@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaInfoCircle } from "react-icons/fa";
 import { CiMail, CiMapPin, CiPhone } from "react-icons/ci";
+import data from "../../data.json";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,26 +23,18 @@ const Contact = () => {
     });
   };
 
-  const contactInfo = [
-    {
-      icon: <CiPhone className="text-primary text-3xl font-bold" />,
-      title: "Phone",
-      detail: "9960731781",
-      link: "tel:+919960731781",
-    },
-    {
-      icon: <CiMail className="text-primary text-3xl font-bold" />,
-      title: "Email",
-      detail: "mgengineeringsolutions123@gmail.com",
-      link: "mailto:mgengineeringsolutions123@gmail.com",
-    },
-    {
-      icon: <CiMapPin className="text-primary text-3xl font-bold" />,
-      title: "Address",
-      detail: "Wasuli Phata, Chakan MIDC, Pune-410501",
-      link: "https://maps.google.com/?q=Wasuli+Phata+Chakan+MIDC+Pune+410501",
-    },
-  ];
+  // Map icon types to actual React icon components
+  const iconMap = {
+    phone: <CiPhone className="text-primary text-3xl font-bold" />,
+    email: <CiMail className="text-primary text-3xl font-bold" />,
+    mapPin: <CiMapPin className="text-primary text-3xl font-bold" />,
+  };
+
+  // Get contact info from data.json and map icons
+  const contactInfo = data.contactInfo.map((info) => ({
+    ...info,
+    icon: iconMap[info.iconType],
+  }));
 
   return (
     <div className="min-h-screen">
@@ -179,17 +172,17 @@ const Contact = () => {
                 <h3 className="text-xl font-semibold text-black mb-4">
                   M G Engineering Solutions
                 </h3>
-                <div className="space-y-2 text-gray-700">
-                  <p className="font-medium">
+                <div className="space-y-2 ">
+                  <p className="font-medium text-gray-700">
                     Your trusted partner for safe, reliable, and affordable
                     elevation solutions.
                   </p>
-                  <p className="text-sm">
+                  <p className="text-sm text-gray-700">
                     We specialize in boom lifts, scissor lifts, scaffolding
                     rental & sales, plus complete operation & maintenance
                     services.
                   </p>
-                  <p className="text-sm font-semibold mt-4">
+                  <p className="text-sm font-semibold mt-4 text-gray-700">
                     "We deliver safe, reliable, and affordable elevation
                     solutions on time, every time."
                   </p>
