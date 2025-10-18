@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaPhoneAlt } from "react-icons/fa";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 
 const NavbarNew = () => {
@@ -51,11 +52,21 @@ const NavbarNew = () => {
                 </Link>
               ))}
             </div>
+            <a
+              href="tel:+919826000000"
+              className="hidden md:flex items-center gap-2 hover:opacity-80 transition-all duration-300"
+            >
+              <FaPhoneAlt className="text-white text-xl" />
+              <span className="text-white">+91 98260 00000</span>
+            </a>
 
             {/* Contact Button */}
             <div className="hidden md:block">
-              <Link to="/contact" className="btn-primary rounded-full">
-                Get A Quote
+              <Link
+                to="/contact"
+                className="my-4 btn-inherit border-2 border-[#D4AF37] rounded-full hover:bg-[#D4AF37] px-4 py-2"
+              >
+                <span className="text-white">Get A Quote</span>
               </Link>
             </div>
 
@@ -110,9 +121,9 @@ const NavbarNew = () => {
               ))}
               <Link
                 to="/contact"
-                className="my-4 px-10 py-3 btn-primary rounded-full"
+                className="my-4 px-10 py-3 btn-inherit border-2 border-[#D4AF37] rounded-full hover:bg-[#D4AF37]"
               >
-                Get A Quote
+                <span className="text-white">Get A Quote</span>
               </Link>
             </div>
           </div>

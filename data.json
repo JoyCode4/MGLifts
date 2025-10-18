@@ -1,0 +1,94 @@
+{
+    "sampleCards": [
+        {
+            "id": 1,
+            "title": "Premium Lift Solutions",
+            "description": "High-quality elevator systems designed for modern buildings",
+            "icon": "/assets/lift.png",
+            "price": "Starting from $50,000"
+        },
+        {
+            "id": 2,
+            "title": "Maintenance Services",
+            "description": "Professional maintenance and repair services for all lift types",
+            "icon": "/assets/gear.png",
+            "price": "Monthly plans available"
+        },
+        {
+            "id": 3,
+            "title": "Emergency Support",
+            "description": "24/7 emergency support and rapid response team",
+            "icon": "/assets/service.png",
+            "price": "24/7 availability"
+        }
+    ],
+    "testimonials": [
+        {
+            "name": "John A.",
+            "company": "CEO of Innovate Corp.",
+            "feedback": "From consultation to installation, the process was smooth and transparent. Great experience overall.",
+            "avatar": "/assets/client3.png"
+        },
+        {
+            "name": "Dr. Anya Sharma",
+            "company": "Chief Engineer, Global Dynamics",
+            "feedback": "The equipment provided by M G Engineering Solutions is reliable, well-maintained, and their team is highly professional. I highly recommend them!",
+            "avatar": "/assets/Client1.png"
+        },
+        {
+            "name": "Dr. Sofia Morales",
+            "company": "Chief Engineer, Urban Towers",
+            "feedback": "Their maintenance team is always prompt and professional. We feel safe knowing M G Engineering Solutions has our back with their strict safety measures.",
+            "avatar": "/assets/client2.png"
+        }
+    ],
+    "team": [
+        {
+            "name": "Vikram Patel",
+            "role": "Project Manager",
+            "photo": "/assets/member1.png"
+        },
+        {
+            "name": "Marcus Williams",
+            "role": "Senior Engineer",
+            "photo": "/assets/member2.png"
+        },
+        {
+            "name": "Naomi Tanaka",
+            "role": "Marketing Specialist",
+            "photo": "/assets/member3.png"
+        }
+    ],
+    "slideContent": [
+        {
+            "image": "/assets/home11.jpg",
+            "h2": "Creativity Elevates Progress",
+            "h1": "Innovative Elevation Solutions by M G Engineering Solutions",
+            "description": "Founded in 2018, we simplify working at heights with safe and reliable machines. Our tailored access platforms empower you to build, imagine, and achieve more with complete peace of mind.",
+            "textColor": "text-white",
+            "btnBg": "bg-white",
+            "link": "/sales",
+            "linkText": "Sales"
+        },
+        {
+            "image": "/assets/home12.jpg",
+            "h2": "Reach New Heights Safely",
+            "h1": "Professional Lift Solutions",
+            "description": "From towering skyscrapers to intricate maintenance work, our certified platforms ensure every job is completed with precision and safety.",
+            "textColor": "text-[#2b0715]",
+            "btnBg": "bg-[#2b0715]",
+            "link": "/rentals",
+            "linkText": "Rentals"
+        },
+        {
+            "image": "/assets/home13.jpg",
+            "h2": "Innovation Meets Reliability",
+            "h1": "Your Trusted Lift Partner",
+            "description": "Cutting-edge technology combined with 6+ years of expertise. M G Engineering Solutions delivers safe, reliable, and affordable elevation solutions on time, every time.",
+            "textColor": "text-black",
+            "btnBg": "bg-black",
+            "link": "/contact",
+            "linkText": "Maintenance & Services"
+        }
+    ]
+}

@@ -10,6 +10,8 @@ import Sales from "./pages/Sales";
 import Rentals from "./pages/Rentals";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import Details from "./components/Details";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 function App() {
   return (
@@ -25,9 +27,11 @@ function App() {
             <Route path="/sales" element={<Sales />} />
             <Route path="/rentals" element={<Rentals />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/details/:id" element={<Details />} />
           </Routes>
         </main>
         <Footer />
+        <WhatsAppButton />
       </div>
     </Router>
   );

@@ -1,4 +1,6 @@
-const ProductCard = ({ title, image, specs, price }) => {
+import { Link } from "react-router-dom";
+
+const ProductCard = ({ id, title, image, specs, price }) => {
   return (
     <div className="card overflow-hidden hover:shadow-xl transition-shadow duration-300">
       <div className="aspect-[4/3] overflow-hidden">
@@ -14,7 +16,13 @@ const ProductCard = ({ title, image, specs, price }) => {
         {price && (
           <p className="text-primary font-bold text-lg mb-4">{price}</p>
         )}
-        <button className="btn-primary w-full rounded-full">Get Details</button>
+        <Link
+          to={`/details/${id}`}
+          state={{ id, title, image, specs, price }}
+          className="btn-primary w-full rounded-full block text-center"
+        >
+          Get Details
+        </Link>
       </div>
     </div>
   );
