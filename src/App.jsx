@@ -2,36 +2,30 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
+import Navbar from "./components/Navbar";
 import Services from "./pages/Services";
-import Products from "./pages/Products";
-import NavbarNew from "./components/NavbarNew";
-import ServicesNew from "./pages/ServicesNew";
-import Sales from "./pages/Sales";
-import Rentals from "./pages/Rentals";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
-import Details from "./components/Details";
 import WhatsAppButton from "./components/WhatsAppButton";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-primary-bg">
-        <NavbarNew />
+        <Navbar />
         <main>
           <Routes>
             {/* <Route path="/" element={<Home />} /> */}
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
-            <Route path="/services" element={<ServicesNew />} />
-            <Route path="/sales" element={<Sales />} />
-            <Route path="/rentals" element={<Rentals />} />
+            <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/details/:id" element={<Details />} />
           </Routes>
         </main>
         <Footer />
         <WhatsAppButton />
+        <ToastContainer />
       </div>
     </Router>
   );

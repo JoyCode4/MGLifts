@@ -1,23 +1,42 @@
 import React from "react";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const AboutUs = () => {
+  // Scroll animations
+  const companyInfoAnim = useScrollAnimation("fadeIn", 0.1, 0);
+  const visionAnim = useScrollAnimation("slideLeft", 0.1, 100);
+  const missionAnim = useScrollAnimation("slideRight", 0.1, 200);
+  const servicesAnim = useScrollAnimation("slideUp", 0.1, 0);
+
   return (
     <div className="mx-auto bg-white md:pb-10 pb-0">
-      <section className="py-20 bg-[#262626]">
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-100 via-purple-50 to-pink-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              About M G Engineering Solutions
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-block mb-6">
+              <span className="bg-gradient-to-r from-[#D4AF37] to-[#E6C14A] text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+                About Us
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-[#D4AF37] to-[#E6C14A] bg-clip-text text-transparent mb-6">
+              Our Story & Values
             </h1>
-            <p className="text-xl text-white">
-              Your trusted partner in aerial equipment rental solutions since
-              2018
+            <div className="w-24 h-1 bg-gradient-to-r from-[#D4AF37] to-[#E6C14A] mx-auto mb-6"></div>
+            <p className="text-xl text-gray-700">
+              Trusted since 2018, M G Engineering Solutions delivers safe,
+              reliable lift and access equipment rentals, sales, and services
+              across India. Discover our journey, mission, and commitment to
+              safety and customer satisfaction.
             </p>
           </div>
         </div>
       </section>
       <div className="max-w-4xl mx-auto pt-20">
-        <div className="mx-10 md:mx-0 mb-12 text-black">
+        <div
+          ref={companyInfoAnim.ref}
+          className={`mx-10 md:mx-0 mb-12 text-black ${companyInfoAnim.className}`}
+        >
           <div className="mb-8">
             <h2 className="text-3xl font-bold mb-4 text-center">
               Welcome to M G Engineering Solutions
@@ -48,7 +67,10 @@ const AboutUs = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-gray-50 p-6 rounded-lg">
+            <div
+              ref={missionAnim.ref}
+              className={`bg-gray-50 p-6 rounded-lg ${missionAnim.className}`}
+            >
               <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
               <p className="text-black leading-relaxed">
                 To provide high-quality equipment and reliable services that
@@ -56,7 +78,10 @@ const AboutUs = () => {
               </p>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg">
+            <div
+              ref={visionAnim.ref}
+              className={`bg-gray-50 p-6 rounded-lg ${visionAnim.className}`}
+            >
               <h2 className="text-2xl font-semibold mb-4">Our Vision</h2>
               <p className="text-black leading-relaxed">
                 To be a leading equipment rental and sales provider, setting
@@ -229,57 +254,6 @@ const AboutUs = () => {
               </p>
             </div>
           </div>
-        </div>
-
-        <div className="mx-10 md:mx-0 mb-12">
-          <h2 className="text-3xl font-bold mb-8 text-center">Our Services</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
-                🔹 Equipment Rental
-              </h3>
-              <ul className="space-y-2 text-gray-700 text-sm">
-                <li>• Scissorlift Rental – For safe vertical access</li>
-                <li>• Boomlift Rental – For elevated areas</li>
-                <li>• Scaffolding Rental – For construction projects</li>
-              </ul>
-            </div>
-
-            <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
-                🔹 Equipment Sales
-              </h3>
-              <ul className="space-y-2 text-gray-700 text-sm">
-                <li>• Brand-new equipment</li>
-                <li>• Pre-owned options</li>
-                <li>• Competitive pricing</li>
-                <li>• After-sales service support</li>
-              </ul>
-            </div>
-
-            <div className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">
-                🔹 Maintenance & Support
-              </h3>
-              <ul className="space-y-2 text-gray-700 text-sm">
-                <li>• Regular service and maintenance</li>
-                <li>• Expert technical support</li>
-                <li>• Skilled operators available</li>
-                <li>• Keep projects running smoothly</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="text-center md:mb-20 mx-10 md:mx-0 bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl">
-          <h2 className="text-black text-2xl font-semibold mb-4">Our Team</h2>
-          <p className="text-gray-700 max-w-2xl mx-auto leading-relaxed">
-            Our dedicated team of engineers, technicians, and support staff work
-            tirelessly to ensure your elevation equipment operates smoothly and
-            safely. Led by our founder Manish Gupta, we believe in continuous
-            learning and staying updated with the latest technologies and safety
-            standards in the industry.
-          </p>
         </div>
       </div>
     </div>

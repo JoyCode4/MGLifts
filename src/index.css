@@ -16,6 +16,18 @@
     background-color: #0B0B0B;
     color: #FFFFFF;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* High-quality image rendering */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -85,11 +97,12 @@
   }
   
   .card {
-    background: #1A1A1A;
-    border: 1px solid #2A2A2A;
-    border-radius: 12px;
-    color: #FFFFFF;
-    transition: transform 0.3s ease;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    color: #2d3748;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
   
   .card:hover {
@@ -100,5 +113,35 @@
   .card-title {
     color: #D4AF37;
     font-weight: 600;
+  }
+}
+
+@layer utilities {
+  /* Scroll animation utilities */
+  .rotateX-0 {
+    transform: rotateX(0deg);
+  }
+  
+  .rotateX-90 {
+    transform: rotateX(90deg);
+  }
+  
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Prevent layout shift during animations */
+  .scroll-animate {
+    will-change: transform, opacity;
+  }
+
+  /* Cursor utilities */
+  .cursor-zoom-in {
+    cursor: zoom-in;
+  }
+
+  .cursor-zoom-out {
+    cursor: zoom-out;
   }
 }

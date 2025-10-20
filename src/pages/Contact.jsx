@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { FaInfoCircle } from "react-icons/fa";
 import { CiMail, CiMapPin, CiPhone } from "react-icons/ci";
 import data from "../../data.json";
-
+import useScrollAnimation from "../hooks/useScrollAnimation";
+import emailjs from "emailjs-com";
+import { toast } from "react-toastify";
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -11,8 +12,33 @@ const Contact = () => {
     message: "",
   });
 
+  // Scroll animations
+  const formAnim = useScrollAnimation("slideLeft", 0.1, 0);
+  const contactInfoAnim = useScrollAnimation("slideRight", 0.1, 100);
+  const companyInfoAnim = useScrollAnimation("fadeIn", 0.1, 200);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          from_phone: formData.phone,
+          from_message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          toast.success("Message sent successfully");
+        },
+        (error) => {
+          toast.error("Message sending failed");
+        }
+      );
     setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
@@ -25,9 +51,9 @@ const Contact = () => {
 
   // Map icon types to actual React icon components
   const iconMap = {
-    phone: <CiPhone className="text-primary text-3xl font-bold" />,
-    email: <CiMail className="text-primary text-3xl font-bold" />,
-    mapPin: <CiMapPin className="text-primary text-3xl font-bold" />,
+    phone: <CiPhone className="text-white text-3xl font-bold" />,
+    email: <CiMail className="text-white text-3xl font-bold" />,
+    mapPin: <CiMapPin className="text-white text-3xl font-bold" />,
   };
 
   // Get contact info from data.json and map icons
@@ -37,15 +63,21 @@ const Contact = () => {
   }));
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Hero Section */}
-      <section className="py-20 bg-[#262626]">
+      <section className="py-20 bg-gradient-to-br from-blue-100 via-purple-50 to-pink-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <div className="inline-block mb-6">
+              <span className="bg-gradient-to-r from-[#D4AF37] to-[#E6C14A] text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+                Let's Connect
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-[#D4AF37] to-[#E6C14A] bg-clip-text text-transparent mb-6">
               Get In Touch
             </h1>
-            <p className="text-xl text-white">
+            <div className="w-24 h-1 bg-gradient-to-r from-[#D4AF37] to-[#E6C14A] mx-auto mb-6"></div>
+            <p className="text-xl text-gray-700">
               Have questions? We're here to help you find the perfect equipment
               solution
             </p>
@@ -54,21 +86,24 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20">
+        <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-bold text-black mb-6">
-                Send Us a Message
+            <div
+              ref={formAnim.ref}
+              className={`bg-white p-8 md:p-10 rounded-2xl border-2 border-gray-200 shadow-xl hover:shadow-2xl transition-shadow duration-300 ${formAnim.className}`}
+            >
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span className="mr-3 text-3xl">📩</span> Send Us a Message
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-black mb-2"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
                   >
-                    Name
+                    Full Name
                   </label>
                   <input
                     id="name"
@@ -76,15 +111,16 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="flex h-10 w-full rounded-xl border border-input border-gray-600 bg-[#eeead8] px-3 py-2 text-sm ring-offset-background focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2 focus-visible:ring-offset-[#D4AF37] focus-visible:border-none"
+                    placeholder="Enter your name"
+                    className="flex h-12 w-full rounded-lg border-2 border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:border-[#D4AF37] focus:bg-white focus:ring-2 focus:ring-[#D4AF37]/20 transition-all duration-300"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-black mb-2"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
                   >
-                    Email
+                    Email Address
                   </label>
                   <input
                     id="email"
@@ -93,15 +129,16 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="flex h-10 w-full rounded-xl border border-input border-gray-600 bg-[#eeead8] px-3 py-2 text-sm ring-offset-background focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2 focus-visible:ring-offset-[#D4AF37]"
+                    placeholder="your.email@example.com"
+                    className="flex h-12 w-full rounded-lg border-2 border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:border-[#D4AF37] focus:bg-white focus:ring-2 focus:ring-[#D4AF37]/20 transition-all duration-300"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-medium text-black mb-2"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
                   >
-                    Phone
+                    Phone Number
                   </label>
                   <input
                     id="phone"
@@ -109,15 +146,16 @@ const Contact = () => {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="flex h-10 w-full rounded-xl border border-input border-gray-600 bg-[#eeead8] px-3 py-2 text-sm ring-offset-background focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2 focus-visible:ring-offset-[#D4AF37]"
+                    placeholder="+91 (999) 000-0000"
+                    className="flex h-12 w-full rounded-lg border-2 border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:border-[#D4AF37] focus:bg-white focus:ring-2 focus:ring-[#D4AF37]/20 transition-all duration-300"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-black mb-2"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
                   >
-                    Message
+                    Your Message
                   </label>
                   <textarea
                     id="message"
@@ -126,12 +164,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="flex w-full rounded-xl border border-input border-gray-600 bg-[#eeead8] px-3 py-2 text-sm ring-offset-background focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2 focus-visible:ring-offset-[#D4AF37] h-32"
+                    placeholder="Tell us about your project or inquiry..."
+                    className="flex w-full rounded-lg border-2 border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:border-[#D4AF37] focus:bg-white focus:ring-2 focus:ring-[#D4AF37]/20 transition-all duration-300 resize-none"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full sm:px-12 py-3 text-black btn-inherit border-2 border-[#c1ac4f] rounded-full hover:bg-[#eeead8] hover:text-black"
+                  className="w-full px-6 py-4 bg-gradient-to-r from-[#D4AF37] to-[#E6C14A] text-white font-bold rounded-full hover:shadow-2xl hover:shadow-[#D4AF37]/40 transform hover:scale-105 transition-all duration-300"
                 >
                   Send Message
                 </button>
@@ -139,53 +178,62 @@ const Contact = () => {
             </div>
 
             {/* Contact Info */}
-            <div>
-              <h2 className="text-3xl font-bold text-black mb-6">
+            <div
+              ref={contactInfoAnim.ref}
+              className={`${contactInfoAnim.className}`}
+            >
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Contact Information
               </h2>
-              <p className="text-black mb-8">
+              <p className="text-gray-600 mb-8 text-lg">
                 Reach out to us through any of these channels. We're here to
                 help you with all your elevation equipment needs.
               </p>
-              <div className="space-y-6">
+              <div className="space-y-5">
                 {contactInfo.map((info, index) => (
                   <a
                     key={index}
                     href={info.link}
-                    className="flex items-start space-x-4 p-4 rounded-xl border border-gray-600 bg-[#eeead8] hover:border-b-4 hover:border-[#e2d7b2] transition-colors"
+                    className="group flex items-start space-x-4 p-6 rounded-xl border-2 border-gray-200 bg-white hover:border-[#D4AF37] hover:shadow-xl hover:shadow-[#D4AF37]/20 transition-all duration-300 transform hover:-translate-y-1"
                   >
-                    <div className="w-12 h-12 bg-[#f5e4c2] rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-14 h-14 bg-gradient-to-br from-[#D4AF37] to-[#E6C14A] rounded-full flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
                       {info.icon}
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-black mb-1">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1 group-hover:text-[#D4AF37] transition-colors">
                         {info.title}
                       </h3>
-                      <p className="text-gray-500">{info.detail}</p>
+                      <p className="text-gray-600 text-base">{info.detail}</p>
                     </div>
                   </a>
                 ))}
               </div>
 
               {/* Company Info */}
-              <div className="mt-8 p-6 rounded-xl border border-gray-600 bg-[#eeead8]">
-                <h3 className="text-xl font-semibold text-black mb-4">
-                  M G Engineering Solutions
+              <div
+                ref={companyInfoAnim.ref}
+                className={`mt-8 p-8 rounded-xl border-2 border-gray-200 bg-gradient-to-br from-white to-blue-50 shadow-lg ${companyInfoAnim.className}`}
+              >
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                  <span className="mr-3 text-2xl">🏢</span> M G Engineering
+                  Solutions
                 </h3>
-                <div className="space-y-2 ">
-                  <p className="font-medium text-gray-700">
+                <div className="space-y-3">
+                  <p className="font-medium text-gray-800 text-base">
                     Your trusted partner for safe, reliable, and affordable
                     elevation solutions.
                   </p>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm text-gray-600 leading-relaxed">
                     We specialize in boom lifts, scissor lifts, scaffolding
                     rental & sales, plus complete operation & maintenance
                     services.
                   </p>
-                  <p className="text-sm font-semibold mt-4 text-gray-700">
-                    "We deliver safe, reliable, and affordable elevation
-                    solutions on time, every time."
-                  </p>
+                  <div className="mt-6 pt-4 border-t-2 border-[#D4AF37]/20">
+                    <p className="text-sm font-semibold text-[#D4AF37] italic">
+                      "We deliver safe, reliable, and affordable elevation
+                      solutions on time, every time."
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
