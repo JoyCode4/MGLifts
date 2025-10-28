@@ -63,7 +63,7 @@ const Contact = () => {
   }));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-10">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-100 via-purple-50 to-pink-50">
         <div className="container mx-auto px-4">
@@ -194,7 +194,7 @@ const Contact = () => {
                   <a
                     key={index}
                     href={info.link}
-                    className="group flex items-start space-x-4 p-6 rounded-xl border-2 border-gray-200 bg-white hover:border-[#D4AF37] hover:shadow-xl hover:shadow-[#D4AF37]/20 transition-all duration-300 transform hover:-translate-y-1"
+                    className="group flex items-start space-x-4  p-4 md:p-6 rounded-xl border-2 border-gray-200 bg-white hover:border-[#D4AF37] hover:shadow-xl hover:shadow-[#D4AF37]/20 transition-all duration-300 transform hover:-translate-y-1"
                   >
                     <div className="w-14 h-14 bg-gradient-to-br from-[#D4AF37] to-[#E6C14A] rounded-full flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
                       {info.icon}
@@ -203,7 +203,9 @@ const Contact = () => {
                       <h3 className="text-lg font-semibold text-gray-900 mb-1 group-hover:text-[#D4AF37] transition-colors">
                         {info.title}
                       </h3>
-                      <p className="text-gray-600 text-base">{info.detail}</p>
+                      <p className="text-gray-600 text-base break-all">
+                        {info.detail}
+                      </p>
                     </div>
                   </a>
                 ))}

@@ -9,7 +9,7 @@ const AboutUs = () => {
   const servicesAnim = useScrollAnimation("slideUp", 0.1, 0);
 
   return (
-    <div className="mx-auto bg-white md:pb-10 pb-0">
+    <div className="mx-auto bg-white md:pb-10 pb-0 pt-10">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-100 via-purple-50 to-pink-50">
         <div className="container mx-auto px-4">

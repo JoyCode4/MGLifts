@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import data from "../../data.json";
 import useScrollAnimation from "../hooks/useScrollAnimation";
+import ContactUs from "./Contact";
 
 const Home = () => {
   const navigate = useNavigate();
   const [bgIndex, setBgIndex] = useState(0);
-  const testimonials = data.testimonials;
   const team = data.team;
   const slideContent = data.slideContent;
 
@@ -263,7 +263,7 @@ const Home = () => {
               {/* Equipment Rental */}
               <div
                 ref={rentalCardAnim.ref}
-                onClick={() => navigate("/services")}
+                onClick={() => navigate("/services#rental-header")}
                 className={`group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 ${rentalCardAnim.className}`}
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/10 to-transparent rounded-bl-full"></div>
@@ -333,7 +333,7 @@ const Home = () => {
               {/* Equipment Sales */}
               <div
                 ref={salesCardAnim.ref}
-                onClick={() => navigate("/services")}
+                onClick={() => navigate("/services#sales-header")}
                 className={`group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 ${salesCardAnim.className}`}
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D4AF37]/10 to-transparent rounded-bl-full"></div>
@@ -526,6 +526,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <ContactUs />
     </div>
   );
 };

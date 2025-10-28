@@ -7,14 +7,16 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ScrollToTop from "./components/ScrollToTop";
 import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-primary-bg">
+      <ScrollToTop />
+      <div className="min-h-screen bg-primary-bg overflow-x-hidden">
         <Navbar />
-        <main>
+        <main className="overflow-x-hidden">
           <Routes>
             {/* <Route path="/" element={<Home />} /> */}
             <Route path="/" element={<Home />} />

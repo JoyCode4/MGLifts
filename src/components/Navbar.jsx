@@ -1,22 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [show, setShow] = useState(true);
+  const [lastY, setLastY] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
-  const isActive = (path) => {
-    return location.pathname === path;
-  };
+
+  const isActive = (path) => location.pathname === path;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const y = window.scrollY;
+      setShow(y < 10 || y < lastY || y < 80);
+      if (y > lastY && y > 80) setIsMenuOpen(false);
+      setLastY(y);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastY]);
 
   const navItems = [
     { path: "/", label: "Home" },
     { path: "/services", label: "Our Services" },
     { path: "/about", label: "About Us" },
   ];
+
   return (
-    <nav className="navbar shadow-lg sticky top-0 z-50">
+    <nav
+      className={`navbar shadow-lg fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${
+        show ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
