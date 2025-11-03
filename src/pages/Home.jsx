@@ -181,12 +181,12 @@ const Home = () => {
               (bgIndex - 1 + slideContent.length) % slideContent.length
             )
           }
-          className="absolute top-1/2 -translate-y-1/2 left-6 z-40 group focus:outline-none"
+          className="absolute top-1/2 -translate-y-1/2 md:left-6 left-1 z-40 group focus:outline-none"
           aria-label="Previous Slide"
         >
-          <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-black/50 backdrop-blur-md border-2 border-white/20 group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] transition-all duration-300 shadow-xl group-hover:scale-110">
+          <span className="inline-flex items-center justify-center w-6 h-6 md:w-14 md:h-14 rounded-full bg-black/50 backdrop-blur-md border-2 border-white/20 group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] transition-all duration-300 shadow-xl group-hover:scale-110">
             <svg
-              className="w-6 h-6 text-white"
+              className="w-2 h-2 md:w-6 md:h-6 text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -206,12 +206,12 @@ const Home = () => {
         <button
           type="button"
           onClick={() => setBgIndex((bgIndex + 1) % slideContent.length)}
-          className="absolute top-1/2 -translate-y-1/2 right-6 z-40 group focus:outline-none"
+          className="absolute top-1/2 -translate-y-1/2 md:right-6 right-1 z-40 group focus:outline-none"
           aria-label="Next Slide"
         >
-          <span className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-black/50 backdrop-blur-md border-2 border-white/20 group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] transition-all duration-300 shadow-xl group-hover:scale-110">
+          <span className="inline-flex items-center justify-center w-6 h-6 md:w-14 md:h-14 rounded-full bg-black/50 backdrop-blur-md border-2 border-white/20 group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] transition-all duration-300 shadow-xl group-hover:scale-110">
             <svg
-              className="w-6 h-6 text-white"
+              className="w-2 h-2 md:w-6 md:h-6 text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
