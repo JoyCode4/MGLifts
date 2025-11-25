@@ -46,11 +46,11 @@ const ProductCard = ({
           }}
         >
           <ImageCarousel images={productImages} alt={title} />
-          {price && (
+          {/* {price && (
             <div className="absolute top-4 left-4 bg-gradient-to-r from-[#D4AF37] to-[#E6C14A] text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg z-20 pointer-events-none">
               {price}
             </div>
-          )}
+          )} */}
           {/* Zoom indicator overlay */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 z-10 pointer-events-none">
             <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2 shadow-xl">
@@ -77,7 +77,7 @@ const ProductCard = ({
           <h3 className="card-title text-xl font-bold mb-3 group-hover:text-[#D4AF37] transition-colors duration-300">
             {title}
           </h3>
-          {specs && (
+          {/* {specs && (
             <div className="flex items-start mb-4">
               <svg
                 className="w-4 h-4 text-[#D4AF37] mt-1 mr-2 flex-shrink-0"
@@ -93,13 +93,11 @@ const ProductCard = ({
               </svg>
               <p className="text-sm text-gray-400">{specs}</p>
             </div>
-          )}
+          )} */}
           <Link
             onClick={() =>
               onGetQuote(
-                `Dear M G Engineering Solutions Team,\nI am interested in obtaining a quote for the following equipment:\nProduct: ${title}\nPrice: ${
-                  price ? price : "N/A"
-                }\nSpecifications: ${specs ? specs : "N/A"}\nQuote Type: ${
+                `Dear M G Engineering Solutions Team,\nI am interested in obtaining a quote for the following equipment:\nProduct: ${title}\nQuote Type: ${
                   type === "sales" ? "Sales" : "Rental"
                 }\n\nKindly provide detailed pricing and availability for this product. Thank you.\nBest regards,\n<Your Name>`
               )

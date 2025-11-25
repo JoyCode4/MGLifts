@@ -493,7 +493,7 @@ const Home = () => {
               className={`${teamHeaderAnim.className}`}
             >
               <h2 className="text-3xl font-semibold mb-8 text-center">
-                Meet Our Team
+                Our Founder & CEO
               </h2>
             </div>
             <div className="flex gap-4 justify-center items-center">

@@ -42,27 +42,16 @@ const AboutUs = () => {
               Welcome to M G Engineering Solutions
             </h2>
             <p className="text-black mb-4 leading-relaxed">
-              Founded in 2018 by{" "}
-              <span className="font-semibold">Manish Gupta</span>, an engineer
-              in Electronics and Communication with hands-on industrial
-              expertise, M G Engineering Solutions has grown from scratch into
-              one of India's most trusted names in elevation solutions. With a
-              strong vision to simplify working at heights with safe and
-              reliable machines, we proudly serve clients Pan-India.
-            </p>
-            <p className="text-black mb-4 leading-relaxed">
-              We specialize in the rental and sale of high-quality boom lifts,
-              scissor lifts, scaffolding, and provide complete operation &
-              maintenance services. What sets us apart is not just our machines,
-              but our commitment to timely delivery, best-maintained equipment,
-              trained & certified staff, and strict safety practices.
-            </p>
-            <p className="text-black leading-relaxed">
-              At M G Engineering Solutions, we don't just rent machines—we
-              provide complete elevation support with skilled operators and
-              technicians to ensure smooth and safe project execution. We are
-              already recognised for our strict safety measures and reliable
-              service.
+              Manish Gupta is the Founder and CEO of M G Engineering Solutions,
+              a leading name in equipment rental and material handling services.
+              With over a decade of hands-on experience in the construction and
+              industrial sector, he brings strong technical expertise and a
+              passion for innovation.
+              <br />
+              <br />
+              Under his leadership, the company has built a reputation for
+              safety, reliability, and customer-focused service — delivering
+              solutions that raise industry standards across India.
             </p>
           </div>
 
@@ -73,8 +62,9 @@ const AboutUs = () => {
             >
               <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
               <p className="text-black leading-relaxed">
-                To provide high-quality equipment and reliable services that
-                enhance workplace safety and efficiency.
+                To provide advanced material handling and access equipment with
+                reliable, efficient, and safe rental solutions — empowering
+                industries to work smarter, faster, and safer every day.
               </p>
             </div>
 
@@ -84,8 +74,10 @@ const AboutUs = () => {
             >
               <h2 className="text-2xl font-semibold mb-4">Our Vision</h2>
               <p className="text-black leading-relaxed">
-                To be a leading equipment rental and sales provider, setting
-                benchmarks in safety, quality, and customer service.
+                To be India's most trusted and innovative partner in equipment
+                rental and material handling solutions — setting new standards
+                in quality, safety, and customer satisfaction across every
+                project.
               </p>
             </div>
           </div>
@@ -95,8 +87,9 @@ const AboutUs = () => {
               Our Promise
             </h2>
             <p className="text-black text-center text-lg font-medium">
-              "We deliver safe, reliable, and affordable elevation solutions on
-              time, every time."
+              "We deliver safe, reliable, and cost-effective lifting and access
+              solutions — ensuring timely service, top performance, and complete
+              peace of mind for our customers."
             </p>
           </div>
         </div>
