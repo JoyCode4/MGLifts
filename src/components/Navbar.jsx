@@ -41,7 +41,7 @@ const Navbar = () => {
           <img
             src="/assets/logo_mg.png"
             alt="logo"
-            className="w-10 h-10 cursor-pointer hover:scale-105 transition-all duration-300"
+            className="w-24 h-auto cursor-pointer hover:scale-105 transition-all duration-300"
             onClick={() => navigate("/")}
           />
           {/* <Link to="/" className="flex items-center space-x-2">
