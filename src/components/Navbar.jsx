@@ -41,7 +41,7 @@ const Navbar = () => {
           <img
             src="/assets/logo_mg.png"
             alt="logo"
-            className="w-24 h-auto cursor-pointer hover:scale-105 transition-all duration-300"
+            className="w-10 h-10 cursor-pointer hover:scale-105 transition-all duration-300"
             onClick={() => navigate("/")}
           />
           {/* <Link to="/" className="flex items-center space-x-2">
@@ -69,11 +69,11 @@ const Navbar = () => {
               ))}
             </div>
             <a
-              href="tel:+919826000000"
+              href="tel:+917721067070"
               className="hidden md:flex items-center gap-2 hover:opacity-80 transition-all duration-300"
             >
               <FaPhoneAlt className="text-white text-xl" />
-              <span className="text-white">+91 98260 00000</span>
+              <span className="text-white">+91 77210 67070</span>
             </a>
 
             {/* Contact Button */}

@@ -21,15 +21,15 @@ const Contact = () => {
     e.preventDefault();
     emailjs
       .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        "EmailJS",
+        "template_01xmm0e",
         {
           from_name: formData.name,
           from_email: formData.email,
           from_phone: formData.phone,
           from_message: formData.message,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        "Add4AHtPfT3w69DHK"
       )
       .then(
         (result) => {
