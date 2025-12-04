@@ -69,11 +69,13 @@ const Navbar = () => {
               ))}
             </div>
             <a
-              href="tel:+917721067070"
+              href="tel:+919960731781"
               className="hidden md:flex items-center gap-2 hover:opacity-80 transition-all duration-300"
             >
               <FaPhoneAlt className="text-white text-xl" />
-              <span className="text-white">+91 77210 67070</span>
+              <span className="text-white">
+                +91 77210 67070 / +91 99607 31781
+              </span>
             </a>
 
             {/* Contact Button */}
